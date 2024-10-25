@@ -1,0 +1,17 @@
+#We can either build our own customized database or download using wget
+#Building customized database
+#You can download only required phylum
+kraken2-build --download-library fungi db --fungi --threads 8
+kraken2-build --download-library archaea db --archaea --threads 8
+kraken2-build --download-library viral db --viral --threads 8
+kraken2-build --download-library bacteria db --bacteria --threads 8
+kraken2-build --download-library human db --human --threads 8
+
+#PLEASE NOTE DATABASE OF KRAKEN1 CANNOT BE USED WITH KRAKEN2
+#ALSO IF CUSTOMIZING DATABASE WE NEED TO KEEP FILES IN SPECIFIC ORDER
+#Use multi threading and nohup to avoid circumstances where the server gets disconneted
+
+# Creating database using standard procedure
+nohup kraken2-build --standard --threads 12 --db <db_name>
+#Please check available threads in the server before running command by using 'htop' command
+#you can check the progress using 'cat nohup.out' which keeps log of progress
