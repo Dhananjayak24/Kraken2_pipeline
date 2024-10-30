@@ -1,0 +1,27 @@
+# Classification using built database
+Once you are ready with your kraken2 database, now you can perform classification using the below command.
+**TIPS:** Keep path of you raw fastq file and database copied somewhere in system.
+There are many options available for classification. I prefer you to go through the standard github repository for output flags https://github.com/DerrickWood/kraken2/blob/master/docs/MANUAL.markdown 
+
+Command to perform classification
+(nohup kraken2 --db <path to database> --threads <num> --classified-out <file for unclassified seqs> --classified <file for classified seqs> <path to the raw fastq files> > <final outputfile.txt>)
+```bash
+nohup kraken2 --db <path to db> --threads 12 --classified-out NB34_000363532_classified.fq --unclassified-out NB34_000363532_unclassified.fq <path to raw fastq file> > <outputfile>
+```
+We can also use --use-names to get taxa name for classified seqs
+```bash
+nohup kraken2 --db <path to db> --threads 12 --use-names <path to raw fastq file> > <outputfile>
+```
+Most of the time we need to generate standard Kraken2 output for further analysis
+Report generation:
+```bash
+nohup kraken2 --db <path to db> --threads 12 --report NB34_000363532_report.txt <path to raw fastq file>
+```
+
+Once you successfully complete the report generation, its better to copy or move the files from server to local disk.
+
+For this open WSL in your system and then write this command with your specific details
+Before this ensure that you are in the correct directory  in the local system(anyhow you can mention specific path in local system also in place of ./)
+**Open WSL in local machine, try connecting to the server using IP and password in the following way**
+```bash
+scp <username>@<IP address of server>://<path to your reports in server>/*.txt ./
