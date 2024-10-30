@@ -18,11 +18,79 @@ Run these codes on the server because building database requires about 100GB of 
   **Dependencies**: It mostly uses Linux commands. Scripts are written mostly in bash shell, and perl. Downloads of NCBI data are performed by wget and rsync.
     Kraken 2 will attempt to use the dustmasker or segmasker programs provided as part of NCBI's BLAST suite to mask low-complexity regions. 
 
-# Installing Conda
+## Installing Conda
 You can skip this step if your system already has miniconda or any other conda installed.
 Getting miniconda installer using wget
 
-'''bash
+```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-'''
+```
+Making script of installer to executable mode
+```bash
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+```
 
+Run the installer
+```bash
+./Miniconda3-latest-Linux-x86_64.sh
+```
+
+Initialize conda and activate
+```bash
+conda init
+conda activate
+```
+
+## Creating new Conda environment
+Creating a new environment in Conda and working within a specific environment is always preferred because it helps manage dependencies across different versions, allows you to work in an isolated environment, ensures reproducibility, and keeps the base environment clean.
+```bash
+conda create -n <environment_name>
+```
+To rename the environment(if required)
+```bash
+conda rename <old_name> <new_name>
+```
+
+Activating the environment
+```bash
+conda activate <environment_name>
+```
+
+To check list of environments
+```bash
+conda env list
+```
+to know which environment is active look for '*" symbol
+
+To exit from environment
+```bash
+conda deactivate
+```
+
+## Installing Kraken2 in the environment
+Ensure that you are in correct envrionment before downloading and installing.
+Download Kraken 2 Source Code
+Use wget or curl to download the Kraken 2 source code from the official Kraken 2 GitHub repository:
+```bash
+wget https://github.com/DerrickWood/kraken2/archive/v2.1.2.tar.gz
+```
+Extract the tarball
+```bash
+tar -zxvf v2.1.2.tar.gz
+```
+Navigate to the Extracted Directory
+```bash
+cd kraken2-2.1.2
+```
+Install Kraken 2 in the chosen directory
+```bash
+./install_kraken2.sh /path/to/install/kraken2
+```
+Add kraken2 path to our path
+```bash
+export PATH="/path/to/install/kraken2:$PATH"
+```
+Check whether kraken2 installed properly or not
+```
+kraken2 -v
+```
