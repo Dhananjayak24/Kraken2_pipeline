@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path = r"C:\Users\LTP-KanchanJ\OneDrive\kraken2\NB34_000363532_report.txt"
+file_path = r"<path to the file in local>"
 
 # Initializing total class reads and an empty list for abundance data
 columns = ['abundance', 'rank', 'scientific_name']
@@ -55,4 +55,4 @@ calculate_rel_abundance(species_gp)
 #print(species_gp)
 
 #downloading the output into local disk using to_csv
-species_gp.to_csv(r'C:\Users\LTP-KanchanJ\OneDrive\script_output\species_abundance.csv', index= False)
+species_gp.to_csv(r'<path to the output file>\species_abundance.csv', index= False)
