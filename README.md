@@ -18,3 +18,7 @@ Run these codes on the server because building database requires about 100GB of 
   **Dependencies**: It mostly uses Linux commands. Scripts are written mostly in bash shell, and perl. Downloads of NCBI data are performed by wget and rsync.
     Kraken 2 will attempt to use the dustmasker or segmasker programs provided as part of NCBI's BLAST suite to mask low-complexity regions. 
 
+# Installing Conda
+You can skip this step if your system already has miniconda or any other conda installed.
+Getting miniconda installer using wget
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
