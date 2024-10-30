@@ -21,4 +21,8 @@ Run these codes on the server because building database requires about 100GB of 
 # Installing Conda
 You can skip this step if your system already has miniconda or any other conda installed.
 Getting miniconda installer using wget
+
+'''bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+'''
+
